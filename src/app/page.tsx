@@ -1,69 +1,96 @@
 'use client';
 
-import { useEffect }               from 'react';
-import { useRouter }               from 'next/navigation';
-import { usePiAuth, ssoRedirect }  from '@yasser172/tec-auth';
-import { TEC_COLORS }              from '@yasser172/tec-ui';
+import { useRouter } from 'next/navigation';
 
-// ── تعديل حسب الـ domain ──────────────────────────────────
-// Defensive: a misconfigured env (the literal placeholder `C_HUB_URL`, or an
-// empty string) must NEVER become a redirect target → it 404s (the July 2026
-// System incident). Accept only a real http(s) URL; else use the fallback.
-const httpOr = (raw: string | undefined, fallback: string): string =>
-  raw && /^https?:\/\//i.test(raw) ? raw.replace(/\/+$/, '') : fallback;
+const COLORS = {
+  bg: '#020205',
+  gold: '#d4af37',
+  goldDark: '#b58d1d',
+  text: 'rgba(255,255,255,.92)',
+  subtext: 'rgba(255,255,255,.55)',
+};
 
-const HUB_URL    = httpOr(process.env.NEXT_PUBLIC_HUB_URL, 'https://hub.tecosystem.app');
-const APP_URL    = httpOr(process.env.NEXT_PUBLIC_APP_URL, 'https://app.tecosystem.app');
-const APP_NAME   = process.env.NEXT_PUBLIC_APP_NAME   ?? 'TEC App';
-const APP_EMOJI  = process.env.NEXT_PUBLIC_APP_EMOJI  ?? '🔷';
+const APP_NAME =
+  process.env.NEXT_PUBLIC_APP_NAME ?? 'Atlas';
+
+const APP_EMOJI =
+  process.env.NEXT_PUBLIC_APP_EMOJI ?? '📚';
 
 export default function HomePage() {
-  const { isAuthenticated, isLoading } = usePiAuth();
   const router = useRouter();
 
-  useEffect(() => {
-    if (!isLoading && isAuthenticated) {
-      router.replace('/app');
-    }
-  }, [isLoading, isAuthenticated, router]);
-
-  const handleLogin = () => {
-    ssoRedirect(HUB_URL, `${APP_URL}/app`);
-  };
+  function handleEnter() {
+    router.push('/app');
+  }
 
   return (
-    <div style={{
-      minHeight:      '100vh',
-      background:     '#020205',
-      display:        'flex',
-      alignItems:     'center',
-      justifyContent: 'center',
-    }}>
-      <div style={{ textAlign: 'center' }}>
-        <div style={{ fontSize: 48, marginBottom: 16 }}>{APP_EMOJI}</div>
-        <div style={{ fontSize: 24, fontWeight: 900, color: TEC_COLORS.gold, marginBottom: 8 }}>
-          {APP_NAME}
-        </div>
-        <div style={{ fontSize: 13, color: TEC_COLORS.subtext, marginBottom: 32 }}>
-          TEC ECOSYSTEM
-        </div>
-        <button
-          onClick={handleLogin}
-          disabled={isLoading}
+    <main
+      style={{
+        minHeight: '100vh',
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center',
+        background: COLORS.bg,
+        color: COLORS.text,
+        padding: 24,
+      }}
+    >
+      <div
+        style={{
+          maxWidth: 420,
+          width: '100%',
+          textAlign: 'center',
+        }}
+      >
+        <div
           style={{
-            padding:      '14px 32px',
-            background:   `linear-gradient(135deg, ${TEC_COLORS.gold}, ${TEC_COLORS.goldDark})`,
-            border:       'none',
-            borderRadius: 16,
-            color:        '#0a0800',
-            fontSize:     15,
-            fontWeight:   700,
-            cursor:       isLoading ? 'not-allowed' : 'pointer',
-            opacity:      isLoading ? 0.6 : 1,
-          }}>
-          {isLoading ? '...' : 'Login with Pi'}
+            fontSize: 56,
+            marginBottom: 20,
+          }}
+        >
+          {APP_EMOJI}
+        </div>
+
+        <h1
+          style={{
+            color: COLORS.gold,
+            fontSize: 34,
+            marginBottom: 12,
+            fontWeight: 800,
+          }}
+        >
+          {APP_NAME}
+        </h1>
+
+        <p
+          style={{
+            color: COLORS.subtext,
+            marginBottom: 40,
+            lineHeight: 1.6,
+          }}
+        >
+          Atlas Knowledge Platform
+          <br />
+          Research • Knowledge • Intelligence
+        </p>
+
+        <button
+          onClick={handleEnter}
+          style={{
+            width: '100%',
+            padding: '16px',
+            borderRadius: 14,
+            border: 'none',
+            cursor: 'pointer',
+            fontSize: 16,
+            fontWeight: 700,
+            background: `linear-gradient(135deg, ${COLORS.gold}, ${COLORS.goldDark})`,
+            color: '#000',
+          }}
+        >
+          Enter Atlas
         </button>
       </div>
-    </div>
+    </main>
   );
 }
