@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import "@/styles/tec-design-tokens.css";
+import "@/styles/atlas-design-tokens.css";
 
 export const metadata: Metadata = {
   title: "Atlas Application",
