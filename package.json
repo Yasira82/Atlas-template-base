@@ -19,7 +19,7 @@
   "dependencies": {
     "@sentry/nextjs": "^8.0.0",
     "axios": "^1.13.5",
-    "jose": "^5.9.6",
+    "jose": "^6.2.4",
     "next": "15.5.12",
     "react": "18.2.0",
     "react-dom": "18.2.0",
