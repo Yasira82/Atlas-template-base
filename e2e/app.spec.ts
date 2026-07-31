@@ -2,10 +2,22 @@ import { test, expect } from '@playwright/test';
 
 test('homepage loads', async ({ page }) => {
   await page.goto('/');
-  await expect(page).toHaveTitle(/TEC/);
+
+  await expect(page).toHaveTitle(/Atlas/i);
 });
 
-test('login button visible', async ({ page }) => {
+test('enter button visible', async ({ page }) => {
   await page.goto('/');
-  await expect(page.getByText('Login with Pi')).toBeVisible();
+
+  await expect(
+    page.getByRole('button', { name: 'Enter Atlas' })
+  ).toBeVisible();
+});
+
+test('app name visible', async ({ page }) => {
+  await page.goto('/');
+
+  await expect(
+    page.getByRole('heading', { name: 'Atlas' })
+  ).toBeVisible();
 });
