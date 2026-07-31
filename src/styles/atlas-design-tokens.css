@@ -1,127 +1,129 @@
 /* ═══════════════════════════════════════════════════════
-   TEC Design Tokens v1.1
+   Atlas Design Tokens v1.0.0-alpha
    Foundation layer — all apps inherit from here
 ═══════════════════════════════════════════════════════ */
 
-/* Full-bleed dark shell — kill every source of the "white frame" around the
-   dark app in Pi Browser:
+/* Full-bleed dark shell — kill every source of the "white frame" around the dark app:
    - html/body default margin + white background,
    - the browser's white UA canvas revealed on overscroll (color-scheme: dark).
    (theme-color meta in layout tints the browser bar.) */
 html {
   color-scheme: dark;
-  background: #020205; /* var(--tec-bg) */
+  background: var(--atlas-bg);
 }
 html, body {
   margin: 0;
   padding: 0;
   min-height: 100%;
-  background: #020205; /* var(--tec-bg) */
+  background: var(--atlas-bg);
+  color: var(--atlas-text-1);
+  font-family: var(--atlas-font-sans);
 }
 
 :root {
   /* ── Colors ─────────────────────────────────────────── */
-  --tec-bg:          #020205;
-  --tec-surface-1:   #0a0a12;
-  --tec-surface-2:   #0d0d18;
-  --tec-surface-3:   #12121e;
-  --tec-border:      rgba(255,255,255,0.06);
-  --tec-border-gold: rgba(212,175,55,0.2);
+  --atlas-bg:          #020205;
+  --atlas-surface-1:   #0a0a12;
+  --atlas-surface-2:   #0d0d18;
+  --atlas-surface-3:   #12121e;
+  --atlas-border:      rgba(255,255,255,0.06);
+  --atlas-border-gold: rgba(212,175,55,0.2);
 
-  --tec-gold:        #d4af37;
-  --tec-gold-dim:    rgba(212,175,55,0.15);
-  --tec-gold-glow:   rgba(212,175,55,0.08);
+  --atlas-gold:        #d4af37;
+  --atlas-gold-dim:    rgba(212,175,55,0.15);
+  --atlas-gold-glow:   rgba(212,175,55,0.08);
 
-  --tec-green:       #10b981;
-  --tec-green-dim:   rgba(16,185,129,0.12);
-  --tec-blue:        #3b82f6;
-  --tec-blue-dim:    rgba(59,130,246,0.12);
-  --tec-red:         #ef4444;
-  --tec-purple:      #8b5cf6;
+  --atlas-green:       #10b981;
+  --atlas-green-dim:   rgba(16,185,129,0.12);
+  --atlas-blue:        #3b82f6;
+  --atlas-blue-dim:    rgba(59,130,246,0.12);
+  --atlas-red:         #ef4444;
+  --atlas-purple:      #8b5cf6;
 
-  --tec-text-1:      rgba(255,255,255,0.92);
-  --tec-text-2:      rgba(255,255,255,0.55);
-  --tec-text-3:      rgba(255,255,255,0.28);
+  --atlas-text-1:      rgba(255,255,255,0.92);
+  --atlas-text-2:      rgba(255,255,255,0.55);
+  --atlas-text-3:      rgba(255,255,255,0.28);
 
   /* ── Spacing (4px base) ─────────────────────────────── */
-  --sp-1:  4px;
-  --sp-2:  8px;
-  --sp-3:  12px;
-  --sp-4:  16px;
-  --sp-5:  20px;
-  --sp-6:  24px;
-  --sp-8:  32px;
-  --sp-10: 40px;
-  --sp-12: 48px;
+  --atlas-space-1:  4px;
+  --atlas-space-2:  8px;
+  --atlas-space-3:  12px;
+  --atlas-space-4:  16px;
+  --atlas-space-5:  20px;
+  --atlas-space-6:  24px;
+  --atlas-space-8:  32px;
+  --atlas-space-10: 40px;
+  --atlas-space-12: 48px;
 
   /* ── Typography ─────────────────────────────────────── */
-  --font-sans: -apple-system, BlinkMacSystemFont, 'SF Pro Display', system-ui, sans-serif;
-  --font-mono: 'SF Mono', 'Fira Code', ui-monospace, monospace;
+  --atlas-font-sans: -apple-system, BlinkMacSystemFont, 'SF Pro Display', system-ui, sans-serif;
+  --atlas-font-mono: 'SF Mono', 'Fira Code', ui-monospace, monospace;
 
-  --text-xs:   11px;
-  --text-sm:   13px;
-  --text-base: 15px;
-  --text-lg:   17px;
-  --text-xl:   20px;
-  --text-2xl:  24px;
-  --text-3xl:  30px;
-  --text-4xl:  38px;
+  --atlas-text-xs:   11px;
+  --atlas-text-sm:   13px;
+  --atlas-text-base: 15px;
+  --atlas-text-lg:   17px;
+  --atlas-text-xl:   20px;
+  --atlas-text-2xl:  24px;
+  --atlas-text-3xl:  30px;
+  --atlas-text-4xl:  38px;
 
   /* ── Radius ─────────────────────────────────────────── */
-  --radius-sm:   8px;
-  --radius-md:   14px;
-  --radius-lg:   20px;
-  --radius-xl:   28px;
-  --radius-full: 9999px;
+  --atlas-radius-sm:   8px;
+  --atlas-radius-md:   14px;
+  --atlas-radius-lg:   20px;
+  --atlas-radius-xl:   28px;
+  --atlas-radius-full: 9999px;
 
   /* ── Shadows ─────────────────────────────────────────── */
-  --shadow-sm:   0 1px 3px rgba(0,0,0,0.4);
-  --shadow-md:   0 4px 16px rgba(0,0,0,0.5);
-  --shadow-lg:   0 8px 32px rgba(0,0,0,0.6);
-  --shadow-gold: 0 0 40px rgba(212,175,55,0.12);
+  --atlas-shadow-sm:   0 1px 3px rgba(0,0,0,0.4);
+  --atlas-shadow-md:   0 4px 16px rgba(0,0,0,0.5);
+  --atlas-shadow-lg:   0 8px 32px rgba(0,0,0,0.6);
+  --atlas-shadow-gold: 0 0 40px rgba(212,175,55,0.12);
 
   /* ── Transitions ─────────────────────────────────────── */
-  --ease-out:    cubic-bezier(0.16, 1, 0.3, 1);
-  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
-  --dur-fast:    120ms;
-  --dur-base:    200ms;
-  --dur-slow:    350ms;
+  --atlas-ease-out:    cubic-bezier(0.16, 1, 0.3, 1);
+  --atlas-ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --atlas-duration-fast:    120ms;
+  --atlas-duration-base:    200ms;
+  --atlas-duration-slow:    350ms;
 
   /* ── Z-index scale ───────────────────────────────────── */
-  --z-base:    1;
-  --z-sticky:  100;
-  --z-topbar:  150;
-  --z-overlay: 200;
-  --z-sidebar: 210;
-  --z-modal:   300;
-  --z-toast:   400;
+  --atlas-z-base:    1;
+  --atlas-z-sticky:  100;
+  --atlas-z-topbar:  150;
+  --atlas-z-overlay: 200;
+  --atlas-z-sidebar: 210;
+  --atlas-z-modal:   300;
+  --atlas-z-toast:   400;
 }
 
 /* ── Theme: dark (default) ───────────────────────────── */
 [data-theme='dark'],
 :root {
-  --tec-bg:        #020205;
-  --tec-surface-1: #0a0a12;
-  --tec-surface-2: #0d0d18;
-  --tec-text-1:    rgba(255,255,255,0.92);
-  --tec-text-2:    rgba(255,255,255,0.55);
-  --tec-text-3:    rgba(255,255,255,0.28);
+  --atlas-bg:        #020205;
+  --atlas-surface-1: #0a0a12;
+  --atlas-surface-2: #0d0d18;
+  --atlas-text-1:    rgba(255,255,255,0.92);
+  --atlas-text-2:    rgba(255,255,255,0.55);
+  --atlas-text-3:    rgba(255,255,255,0.28);
 }
 
 /* ── Theme: light (ready for future) ────────────────── */
 [data-theme='light'] {
-  --tec-bg:        #f8f8fc;
-  --tec-surface-1: #ffffff;
-  --tec-surface-2: #f2f2f8;
-  --tec-surface-3: #e8e8f0;
-  --tec-border:    rgba(0,0,0,0.08);
-  --tec-text-1:    rgba(0,0,0,0.92);
-  --tec-text-2:    rgba(0,0,0,0.55);
-  --tec-text-3:    rgba(0,0,0,0.28);
+  --atlas-bg:        #f8f8fc;
+  --atlas-surface-1: #ffffff;
+  --atlas-surface-2: #f2f2f8;
+  --atlas-surface-3: #e8e8f0;
+  --atlas-border:    rgba(0,0,0,0.08);
+  --atlas-text-1:    rgba(0,0,0,0.92);
+  --atlas-text-2:    rgba(0,0,0,0.55);
+  --atlas-text-3:    rgba(0,0,0,0.28);
 }
 
 /* ── Global resets ───────────────────────────────────── */
 *, *::before, *::after {
+  box-sizing: border-box;
   -webkit-tap-highlight-color: transparent;
   -webkit-font-smoothing:      antialiased;
   -moz-osx-font-smoothing:     grayscale;
@@ -133,82 +135,82 @@ input[type=number]::-webkit-outer-spin-button { -webkit-appearance: none; margin
 input[type=number] { -moz-appearance: textfield; }
 
 /* ── Keyframes ───────────────────────────────────────── */
-@keyframes tec-fade-in {
+@keyframes atlas-fade-in {
   from { opacity: 0; transform: translateY(8px); }
   to   { opacity: 1; transform: none; }
 }
-@keyframes tec-scale-in {
+@keyframes atlas-scale-in {
   from { opacity: 0; transform: scale(0.95); }
   to   { opacity: 1; transform: scale(1); }
 }
-@keyframes tec-pulse {
+@keyframes atlas-pulse {
   0%, 100% { opacity: 1; }
   50%       { opacity: 0.35; }
 }
-@keyframes tec-spin {
+@keyframes atlas-spin {
   to { transform: rotate(360deg); }
 }
-@keyframes tec-shimmer {
+@keyframes atlas-shimmer {
   0%   { background-position: -200% center; }
   100% { background-position:  200% center; }
 }
-@keyframes tec-float {
+@keyframes atlas-float {
   0%, 100% { transform: translateY(0); }
   50%       { transform: translateY(-4px); }
 }
-@keyframes tec-slide-up {
+@keyframes atlas-slide-up {
   from { opacity: 0; transform: translateY(20px); }
   to   { opacity: 1; transform: none; }
 }
 
 /* ── Utility classes ─────────────────────────────────── */
-.tec-fade-in   { animation: tec-fade-in var(--dur-slow) var(--ease-out) both; }
-.tec-scale-in  { animation: tec-scale-in var(--dur-base) var(--ease-spring) both; }
-.tec-slide-up  { animation: tec-slide-up var(--dur-slow) var(--ease-out) both; }
-.tec-pulse     { animation: tec-pulse 2s ease-in-out infinite; }
-.tec-spin      { animation: tec-spin 0.8s linear infinite; }
-.tec-float     { animation: tec-float 3s ease-in-out infinite; }
+.atlas-fade-in   { animation: atlas-fade-in var(--atlas-duration-slow) var(--atlas-ease-out) both; }
+.atlas-scale-in  { animation: atlas-scale-in var(--atlas-duration-base) var(--atlas-ease-spring) both; }
+.atlas-slide-up  { animation: atlas-slide-up var(--atlas-duration-slow) var(--atlas-ease-out) both; }
+.atlas-pulse     { animation: atlas-pulse 2s ease-in-out infinite; }
+.atlas-spin      { animation: atlas-spin 0.8s linear infinite; }
+.atlas-float     { animation: atlas-float 3s ease-in-out infinite; }
 
-.tec-glass {
+.atlas-glass {
   background:              rgba(255,255,255,0.03);
   backdrop-filter:         blur(20px) saturate(1.5);
   -webkit-backdrop-filter: blur(20px) saturate(1.5);
-  border: 1px solid var(--tec-border);
+  border: 1px solid var(--atlas-border);
 }
 
-.tec-skeleton {
+.atlas-skeleton {
   background: linear-gradient(
     90deg,
-    var(--tec-surface-2) 25%,
-    var(--tec-surface-3) 50%,
-    var(--tec-surface-2) 75%
+    var(--atlas-surface-2) 25%,
+    var(--atlas-surface-3) 50%,
+    var(--atlas-surface-2) 75%
   );
   background-size: 200% 100%;
-  animation: tec-shimmer 1.6s ease-in-out infinite;
-  border-radius: var(--radius-sm);
+  animation: atlas-shimmer 1.6s ease-in-out infinite;
+  border-radius: var(--atlas-radius-sm);
 }
 
 /* ── Button interactions ─────────────────────────────── */
-.tec-btn:active      { transform: scale(0.97); transition: transform 80ms ease; }
-.tec-app-card:active { transform: scale(0.96); transition: transform 80ms ease; }
-.tec-nav-btn:active  { transform: scale(0.9);  transition: transform 80ms ease; }
+.atlas-btn:active      { transform: scale(0.97); transition: transform 80ms ease; }
+.atlas-app-card:active { transform: scale(0.96); transition: transform 80ms ease; }
+.atlas-nav-btn:active  { transform: scale(0.9);  transition: transform 80ms ease; }
 
-.tec-nav-link        { transition: background 0.15s ease, color 0.15s ease; }
-.tec-nav-link:active { background: rgba(255,255,255,0.08) !important; transform: scale(0.98); }
+.atlas-nav-link        { transition: background 0.15s ease, color 0.15s ease; }
+.atlas-nav-link:active { background: rgba(255,255,255,0.08) !important; transform: scale(0.98); }
 
 /* ── Dashboard sidebar ───────────────────────────────── */
-.tec-main-content {
+.atlas-main-content {
   overflow-y: auto;
-  padding: var(--sp-3) var(--sp-3);
+  padding: var(--atlas-space-3) var(--atlas-space-3);
 }
 
 @media (min-width: 768px) {
-  .tec-main-content { padding: var(--sp-5) var(--sp-4); }
+  .atlas-main-content { padding: var(--atlas-space-5) var(--atlas-space-4); }
 }
 
 @media (min-width: 1024px) {
-  .tec-main-content  { margin-left: 240px !important; margin-top: 0 !important; padding: var(--sp-6) var(--sp-5); }
-  .tec-mobile-topbar { display: none !important; }
+  .atlas-main-content  { margin-left: 240px !important; margin-top: 0 !important; padding: var(--atlas-space-6) var(--atlas-space-5); }
+  .atlas-mobile-topbar { display: none !important; }
 }
 
 /* ── Accessibility: reduced motion ───────────────────── */
